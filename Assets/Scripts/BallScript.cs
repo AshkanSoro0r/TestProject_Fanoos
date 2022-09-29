@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class BallScript : MonoBehaviour
         {
             GameManager.instance.reInstantiat = true;
             Destroy(gameObject);    // must use pulling system for better performance
+            BlackHole.instance.ball = null;
         }
 
     }
@@ -42,7 +44,7 @@ public class BallScript : MonoBehaviour
             direction = new Vector2(direction.x, direction.y + 0.8f);
             newBall.GetComponent<Rigidbody2D>().AddForce(direction.normalized  * ((gameObject.GetComponent<Rigidbody2D>().velocity.magnitude) / 10),ForceMode2D.Impulse);
             //booster cooldown
-            other.GetComponent<BoxCollider2D>().enabled = false;
+            StartCoroutine(BoosterCooldown());
         }
         
         
@@ -56,7 +58,14 @@ public class BallScript : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().AddForce(direction.normalized  * ((gameObject.GetComponent<Rigidbody2D>().velocity.magnitude) / 5),ForceMode2D.Impulse);
             
             //booster cooldown
+            StartCoroutine(BoosterCooldown());
+        }
+
+        IEnumerator BoosterCooldown()
+        {
             other.GetComponent<BoxCollider2D>().enabled = false;
+            yield return new WaitForSeconds(1);
+            other.GetComponent<BoxCollider2D>().enabled = true;
         }
     }
 }

@@ -2,8 +2,19 @@ using UnityEngine;
 
 public class BlackHole : MonoBehaviour
 {
+    #region Singleton
 
-    private Transform ball;     //ball that init in game
+    public static BlackHole instance = null;
+
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+    }
+
+    #endregion
+
+
+    public Transform ball;     //ball that init in game
     private Rigidbody2D ballRb;
     private float distanceToBall;   //distance between ball and blackhole
     private Vector2 pullForce;
@@ -29,6 +40,10 @@ public class BlackHole : MonoBehaviour
                 pullForce = (transform.position - ball.position).normalized / distanceToBall * intensity;
                 ballRb.AddForce(pullForce, ForceMode2D.Force);
             }
+        }
+        else
+        {
+           // ball = GameObject.FindWithTag("Player").transform;
         }
     }
 
