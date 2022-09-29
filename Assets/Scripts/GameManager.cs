@@ -19,11 +19,15 @@ public class GameManager : MonoBehaviour
     #endregion
     
     public Pins pins;
-    public GameObject ball;
+    public GameObject ball;     //ball prefab
     public Transform SpawnPos;
-    [SerializeField] private bool rightIsActive;
-    [SerializeField] private bool leftIsActive;
-     public bool reInstantiat;
+        
+    [HideInInspector]public Vector3 enterPoint;
+    [HideInInspector]public Vector3 exitPoint;
+    [HideInInspector]public bool reInstantiat;
+
+    private bool rightIsActive;
+    private bool leftIsActive;
     void Start()
     {
         StartGame();

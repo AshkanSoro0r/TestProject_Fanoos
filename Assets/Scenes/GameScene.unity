@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 351, y: 0.000061035156}
+  m_AnchoredPosition: {x: 283, y: 0.000061035156}
   m_SizeDelta: {x: -524.3043, y: 0.0001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &67850330
@@ -731,7 +731,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -313, y: 0.000061035156}
+  m_AnchoredPosition: {x: -305, y: 0.000061035156}
   m_SizeDelta: {x: -524.3043, y: 0.0001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1046456223
@@ -1330,8 +1330,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601538221}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.45, y: -5.1, z: 0}
-  m_LocalScale: {x: 7.25, y: 1, z: 1}
+  m_LocalPosition: {x: 1.45, y: -7.79, z: 0}
+  m_LocalScale: {x: 21.296875, y: 1.0125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 475187602}
@@ -1769,8 +1769,8 @@ MonoBehaviour:
     pinLeftBounc: {fileID: 0}
   ball: {fileID: 6848237129707908116, guid: 954dd8a85aa0eb946b82cd612e94e0f8, type: 3}
   SpawnPos: {fileID: 1528014571}
-  rightIsActive: 0
-  leftIsActive: 0
+  enterPoint: {x: 0, y: 0, z: 0}
+  exitPoint: {x: 0, y: 0, z: 0}
   reInstantiat: 0
 --- !u!4 &1912081277
 Transform:
