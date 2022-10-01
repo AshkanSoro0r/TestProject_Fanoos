@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
@@ -5,13 +6,17 @@ using UnityEngine;
 public class BallScript : MonoBehaviour
 {
 
+    public bool missed;
+    private void Start()
+    {
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Finish"))
         {
+            missed = true;
             GameManager.instance.reInstantiat = true;
-            Destroy(gameObject);    // must use pulling system for better performance
-            BlackHole.instance.ball = null;
         }
 
     }
@@ -39,12 +44,13 @@ public class BallScript : MonoBehaviour
             
             GameObject newBall;
             newBall = Instantiate(GameManager.instance.ball, other.transform.position, quaternion.identity);
-
             Vector2 direction = ( GameManager.instance.exitPoint - GameManager.instance.enterPoint);
             direction = new Vector2(direction.x, direction.y + 0.8f);
             newBall.GetComponent<Rigidbody2D>().AddForce(direction.normalized  * ((gameObject.GetComponent<Rigidbody2D>().velocity.magnitude) / 10),ForceMode2D.Impulse);
+            GameManager.instance.balls.Add(newBall);
             //booster cooldown
             StartCoroutine(BoosterCooldown());
+
         }
         
         
